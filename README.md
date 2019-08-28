@@ -71,13 +71,15 @@ main(**kwargs)   __main__.py
 
 这里有主要定义个类 VideoExtractor, 外部实现的下载接口可以继承这个类
 
-类中主要的 变量：
+### 一些类中主要的 变量：
  
  streams={} :
   
   主要提供下载视频片段的url等信息。这个变量由外部需要由外部接口来进行初始化，结构如下：
   
-  { '1':   {'src':['url1','url2','url3',.....] ,  'size':0 ,  'container': 'MP4' ,  'video_profile':'1280x720_2000kb/s' } , 
+  { 
+  
+    '1':   {'src':['url1','url2','url3',.....] ,  'size':0 ,  'container': 'MP4' ,  'video_profile':'1280x720_2000kb/s' } , 
   
     '2':   {'src':['url1','url2','url3',.....] ,  'size':0 ,  'container': 'MP4' ,  'video_profile':'1280x720_1200kb/s' } ,
    
@@ -90,6 +92,7 @@ main(**kwargs)   __main__.py
  streams_sorted=[]  :   
  
  由streams 变换而来 =>  streams['1'].items()==>
+ 
  [('src', ['url1', 'url2', 'url3...']), ('size', 0), ('container', 'MP4'), ('video_profile', '1280x720_2000kb/s')]
  
  ==> [('id', '1')] + list(streams['1'].items())
@@ -105,8 +108,11 @@ main(**kwargs)   __main__.py
  {'id': '3', 'src': ['url1', 'url2', 'url3'], 'size': 0, 'container': 'MP4', 'video_profile': '640x360_850kb/s'},
  
  ==> [ dict() ] 
+ 
  streams_sorted =
+ 
  [
+ 
    {'id': '1', 'src': ['url1', 'url2', 'url3'], 'size': 0, 'container': 'MP4', 'video_profile': '1280x720_2000kb/s'},
  
    {'id': '2', 'src': ['url1', 'url2', 'url3'], 'size': 0, 'container': 'MP4', 'video_profile': '1280x720_1200kb/s'},
@@ -118,7 +124,12 @@ main(**kwargs)   __main__.py
  dash_streams={}
  
  
+### 一些类方法：
 
+download_by_vid(self, vid, **kwargs)
+
+
+download(self, **kwargs):
 
   
   # 扩展网站需要实现的接口
