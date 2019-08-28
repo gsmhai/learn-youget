@@ -77,15 +77,43 @@ main(**kwargs)   __main__.py
   
   主要提供下载视频片段的url等信息。这个变量由外部需要由外部接口来进行初始化，结构如下：
   
-  { '1',   {'src':['url1','url2','url3',.....] ,  'size':0 ,  'container': 'MP4' ,  'video_profile':'1280x720_2000kb/s' }    }
+  { '1':   {'src':['url1','url2','url3',.....] ,  'size':0 ,  'container': 'MP4' ,  'video_profile':'1280x720_2000kb/s' } , 
   
-  { '2',   {'src':['url1','url2','url3',.....] ,  'size':0 ,  'container': 'MP4' ,  'video_profile':'1280x720_1200kb/s' }    }
+    '2':   {'src':['url1','url2','url3',.....] ,  'size':0 ,  'container': 'MP4' ,  'video_profile':'1280x720_1200kb/s' } ,
+   
+    '3':   {'src':['url1','url2','url3',.....] ,  'size':0 ,  'container': 'MP4' ,  'video_profile':'640x360_850kb/s'   }  ,
+    
+    ...
+ }
    
  
- streams_sorted=[]  :
+ streams_sorted=[]  :   
  
- [  ('id', '1'             ]
+ 由streams 变换而来 =>  streams['1'].items()==>
+ [('src', ['url1', 'url2', 'url3...']), ('size', 0), ('container', 'MP4'), ('video_profile', '1280x720_2000kb/s')]
  
+ ==> [('id', '1')] + list(streams['1'].items())
+ 
+ [ ('id', '1'), ('src', ['url1', 'url2', 'url3', ... ]), ('size', 0), ('container', 'MP4'), ('video_profile', '1280x720_1200kb/s')  ]
+ 
+ ==> dict()
+ 
+ {'id': '1', 'src': ['url1', 'url2', 'url3'], 'size': 0, 'container': 'MP4', 'video_profile': '1280x720_2000kb/s'},
+ 
+ {'id': '2', 'src': ['url1', 'url2', 'url3'], 'size': 0, 'container': 'MP4', 'video_profile': '1280x720_1200kb/s'},
+ 
+ {'id': '3', 'src': ['url1', 'url2', 'url3'], 'size': 0, 'container': 'MP4', 'video_profile': '640x360_850kb/s'},
+ 
+ ==> [ dict() ] 
+ streams_sorted =
+ [
+   {'id': '1', 'src': ['url1', 'url2', 'url3'], 'size': 0, 'container': 'MP4', 'video_profile': '1280x720_2000kb/s'},
+ 
+   {'id': '2', 'src': ['url1', 'url2', 'url3'], 'size': 0, 'container': 'MP4', 'video_profile': '1280x720_1200kb/s'},
+ 
+   {'id': '3', 'src': ['url1', 'url2', 'url3'], 'size': 0, 'container': 'MP4', 'video_profile': '640x360_850kb/s'},
+ 
+ ]
  
  dash_streams={}
  
