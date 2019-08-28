@@ -118,6 +118,7 @@ main(**kwargs)   __main__.py
    {'id': '2', 'src': ['url1', 'url2', 'url3'], 'size': 0, 'container': 'MP4', 'video_profile': '1280x720_1200kb/s'},
  
    {'id': '3', 'src': ['url1', 'url2', 'url3'], 'size': 0, 'container': 'MP4', 'video_profile': '640x360_850kb/s'},
+   ...
  
  ]
  
@@ -128,8 +129,33 @@ main(**kwargs)   __main__.py
 
 download_by_vid(self, vid, **kwargs)
 
+这里主要实现调用外部网页模块接口，生成streams  ，以及 streams_sorted 
 
-download(self, **kwargs):
+然后调用 下面的  download(self, **kwargs）
+
+
+
+
+download(self, **kwargs)
+
+   kwargs 关键字参数，可能包含 ：
+                              json_output
+                              
+                              info_only
+                              
+                              stream_id
+                              
+                              index
+                              
+                              output_dir
+                              
+                              caption
+                              
+                              output_dir
+                              
+                              keep_obj
+                              
+   
 
   
   # 扩展网站需要实现的接口
