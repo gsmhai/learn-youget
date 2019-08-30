@@ -93,7 +93,7 @@ main(**kwargs)   __main__.py
  
  由streams 变换而来 =>  streams['1'].items()==>
  
- [('src', ['url1', 'url2', 'url3...']), ('size', 0), ('container', 'MP4'), ('video_profile', '1280x720_2000kb/s')]
+>[('src', ['url1', 'url2', 'url3...']), ('size', 0), ('container', 'MP4'), ('video_profile', '1280x720_2000kb/s')]
  
  ==> [('id', '1')] + list(streams['1'].items())
  
@@ -109,7 +109,7 @@ main(**kwargs)   __main__.py
  
  ==> [ dict() ] 
  
- streams_sorted =
+ **streams_sorted** =
  
  [
  
