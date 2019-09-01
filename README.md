@@ -73,7 +73,7 @@ main(**kwargs)   __main__.py
 
 ### 一些类中主要的 变量：
  
-#####streams={ }:
+##### streams={ }:
   
   主要提供下载视频片段的url等信息。这个变量由外部需要由外部接口来进行初始化，结构如下：
   
@@ -89,7 +89,7 @@ main(**kwargs)   __main__.py
  **}**
    
  
-#####streams_sorted=[  ]:
+##### streams_sorted=[  ]:
  
  由streams 变换而来 =>  streams['1'].items()==>
  
@@ -129,7 +129,7 @@ main(**kwargs)   __main__.py
 ### 一些类方法：
 
 
-####download_by_url(self, url, **kwargs):
+#### download_by_url(self, url, **kwargs):
 根据streams  ，生成 streams_sorted 
 调用**download(** ****kwargs)**
 
@@ -140,7 +140,7 @@ main(**kwargs)   __main__.py
 
 然后调用 下面的  download(self, **kwargs）
 
-#####download(**kwargs)
+##### download(**kwargs)
 
 kwargs 关键字参数，可能包含 ：
 
@@ -152,7 +152,7 @@ kwargs 关键字参数，可能包含 ：
     caption :     可能是用于弹幕                                           
     keep_obj :
                               
-####download(self, **kwargs):
+#### download(self, **kwargs):
 如果有 kwargs包含 'json_output' 字段  调用  json_output.output()，打印出stream 的一些信息
 如果有 kwargs包含  'info_only’  字段，根据 kwargs包含  'stream_id  字段 或者'index  字段，调用 p(stream_id) 或者 p_i(stream_id)打印出stream 的一些信息
 否则：
@@ -162,11 +162,11 @@ kwargs 关键字参数，可能包含 ：
 
   
 
-####p(self, stream_id=None):
+#### p(self, stream_id=None):
 
 
 
-###p_stream(self, stream_id):
+### p_stream(self, stream_id):
 打印streams 里面key 和value 值:
   itag/format
   container
@@ -176,7 +176,7 @@ kwargs 关键字参数，可能包含 ：
   m3u8_url
 
 
-###p(self, stream_id=None)：
+### p(self, stream_id=None)：
 如果有传入 **stream_id**，直接调用上面的 **p_stream(stream_id)**
 
 如果**stream_id==None**，如果stream_id = streams_sorted[0]['id'] 或者 streams_sorted[0]['itag']， 在调用上面的 **p_stream(stream_id)**
@@ -184,7 +184,7 @@ kwargs 关键字参数，可能包含 ：
 如果**stream_id=[]**，  调用**p_stream(stream_id)** 打印dash_streams 或者 streams_sorted 里面每一个元素
 
 
-###p_i(self, stream_id):
+### p_i(self, stream_id):
 打印streams[stream_id]  的下面三个key 和value 值：
   title
   size
